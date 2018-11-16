@@ -8,11 +8,11 @@ setTimeout(function(){
 }, 100);
     
 setInterval(function(){
-    
+    getPlayers();
 }, 5000);
     
 function getPlayers() {
-    fetch('./api/some.json')
+    fetch('https://api.thetheoristgateway.com/args/fdasfdasdfasfdsafdafdsaf/leaderboard?username=_')
   .then(
     function(response) {
       if (response.status !== 200) {
