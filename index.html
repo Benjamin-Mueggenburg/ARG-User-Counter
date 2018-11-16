@@ -23,7 +23,7 @@ function getPlayers() {
 
       // Examine the text in the response
       response.json().then(function(data) {
-        return Object.keys(data).length;
+        return data;
       });
     }
   )
