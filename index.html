@@ -2,19 +2,26 @@
 <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css" />
 <script src="https://github.hubspot.com/odometer/odometer.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<link href='main.css' rel='stylesheet'>
 
 <script>
 var number_players = 0   
 var lastUpdated = "N/A"
-setTimeout(function() {
+
+
+
+function UpdateCounter() {
+
 	getPlayers();
+
 	odometer.innerHTML = number_players;
 	updatedate.innerHTML = lastUpdated;
+}
 
-}, 1000);
+   
 
-    
 function getPlayers() {
+
     fetch('https://api.thetheoristgateway.com/args/fdasfdasdfasfdsafdafdsaf/leaderboard?username=_')
   .then(
     function(response) {
@@ -36,10 +43,22 @@ function getPlayers() {
     console.log('Fetch Error :-S', err);
   });
 }
+
 </script>
-<p style="font-family:'Roboto',sans-serif; font-size:2em; width:100%; position: relative; left: 30px;" >Number of GT ARG players:</p>
+<p style="font-family:'Roboto',sans-serif; font-size:2em; width:90%; position: relative; left: 30px;" >Number of GT ARG players:</p>
 <div style="position: relative;" >
 	<p id="odometer" class="odometer" style="font-family:'Roboto',sans-serif; font-size:6em; width:100%; text-align:center; margin-bottom: 10px;">0</p>
 	<span style="font-family:'Roboto',sans-serif; color: #9E9E9E; font-size: 1em; width: 100%; left:35%; margin-right: -65%; position: relative;">Last updated:  <span id="updatedate">N/A</span></span>
+
+	
 </div>
+<div style="position: relative;">
+	<button type="button" id="manualUpdate_btn" class="btn update_btn ">Manual Update</button>
+</div>
+<script type="text/javascript">
+  
+	document.getElementById('manualUpdate_btn').onclick = function() {
+    UpdateCounter();
+ }
+</script>
 </html>
