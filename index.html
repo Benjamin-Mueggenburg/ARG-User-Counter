@@ -5,12 +5,13 @@
 <script>
 var number_players = 0    
 setTimeout(function(){
+    getPlayers();
     odometer.innerHTML = number_players;
 }, 100);
     
 setInterval(function(){
    getPlayers();
-   console.log(number_players);
+   odometer.innerHTML = number_players;
 }, 5000);
     
 function getPlayers() {
