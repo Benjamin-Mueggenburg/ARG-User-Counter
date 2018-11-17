@@ -12,11 +12,7 @@ setTimeout(function() {
 	updatedate.innerHTML = lastUpdated;
 
 }, 1000);
-setInterval(function(){
-   getPlayers();
-   odometer.innerHTML = number_players;
-   updatedate.innerHTML = lastUpdated;
-}, 5000);
+
     
 function getPlayers() {
     fetch('https://api.thetheoristgateway.com/args/fdasfdasdfasfdsafdafdsaf/leaderboard?username=_')
