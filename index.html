@@ -3,12 +3,14 @@
 <script src="https://github.hubspot.com/odometer/odometer.js"></script>
 
 <script>
+var number_players = 0    
 setTimeout(function(){
-    odometer.innerHTML = 456;
+    odometer.innerHTML = number_players;
 }, 100);
     
 setInterval(function(){
-   console.log(getPlayers());
+   
+   console.log(number_players);
 }, 5000);
     
 function getPlayers() {
@@ -23,7 +25,8 @@ function getPlayers() {
 
       // Examine the text in the response
       response.json().then(function(data) {
-        return (data.length);
+        number_players = data.length;
+        return;
       });
     }
   )
