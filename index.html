@@ -8,7 +8,7 @@ setTimeout(function(){
 }, 100);
     
 setInterval(function(){
-    console.log(getPlayers());
+    odometer.innerHTML = getPlayers()
 }, 5000);
     
 function getPlayers() {
@@ -23,8 +23,7 @@ function getPlayers() {
 
       // Examine the text in the response
       response.json().then(function(data) {
-        console.log(data.length);
-        return data;
+        return (data.length);
       });
     }
   )
