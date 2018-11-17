@@ -4,15 +4,13 @@
 
 <script>
 var number_players = 0    
-setTimeout(function(){
-    getPlayers();
-    odometer.innerHTML = number_players;
-}, 100);
-    
+getPlayers();
+odometer.innerHTML = number_players;
+   
 setInterval(function(){
    getPlayers();
    odometer.innerHTML = number_players;
-}, 5000);
+}, 10000);
     
 function getPlayers() {
     fetch('https://api.thetheoristgateway.com/args/fdasfdasdfasfdsafdafdsaf/leaderboard?username=_')
