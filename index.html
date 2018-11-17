@@ -3,10 +3,12 @@
 <script src="https://github.hubspot.com/odometer/odometer.js"></script>
 
 <script>
-var number_players = 0    
+var number_players = 0   
+
+setTimeout(function() {
 getPlayers();
 odometer.innerHTML = number_players;
-   
+}, 0);
 setInterval(function(){
    getPlayers();
    odometer.innerHTML = number_players;
