@@ -5,15 +5,18 @@
 
 <script>
 var number_players = 0   
-
+var lastUpdated = "N/A"
 setTimeout(function() {
-getPlayers();
-odometer.innerHTML = number_players;
-}, 10);
+	getPlayers();
+	odometer.innerHTML = number_players;
+	updatedate.innerHTML = lastUpdated;
+
+}, 1000);
 setInterval(function(){
    getPlayers();
    odometer.innerHTML = number_players;
-}, 10000);
+   updatedate.innerHTML = lastUpdated;
+}, 5000);
     
 function getPlayers() {
     fetch('https://api.thetheoristgateway.com/args/fdasfdasdfasfdsafdafdsaf/leaderboard?username=_')
@@ -28,6 +31,7 @@ function getPlayers() {
       // Examine the text in the response
       response.json().then(function(data) {
         number_players = data.length;
+        lastUpdated = new Date()
         return;
       });
     }
@@ -37,6 +41,9 @@ function getPlayers() {
   });
 }
 </script>
-
-<p id="odometer" class="odometer" style="font-family:'Roboto',sans-serif; font-size:6em; left:50vw;">0</p>
+<p style="font-family:'Roboto',sans-serif; font-size:2em; width:100%; position: relative; left: 30px;" >Number of GT ARG players:</p>
+<div style="position: relative;" >
+	<p id="odometer" class="odometer" style="font-family:'Roboto',sans-serif; font-size:6em; width:100%; text-align:center; margin-bottom: 10px;">0</p>
+	<span style="font-family:'Roboto',sans-serif; color: #9E9E9E; font-size: 1em; width: 100%; left:35%; margin-right: -65%; position: relative;">Last updated:  <span id="updatedate">N/A</span></span>
+</div>
 </html>
