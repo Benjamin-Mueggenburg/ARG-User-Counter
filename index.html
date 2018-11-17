@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<link href='css/main.css' rel='stylesheet'>
 <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css" />
 <script src="https://github.hubspot.com/odometer/odometer.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-
+<link href='main.css' rel='stylesheet'>
 
 <script>
 var number_players = 0   
 var lastUpdated = "N/A"
 
-
+UpdateCounter();
 
 function UpdateCounter() {
+	getPlayers(function() {odometer.innerHTML = number_players;
+	updatedate.innerHTML = lastUpdated;})
 
-	getPlayers();
-
-	odometer.innerHTML = number_players;
-	updatedate.innerHTML = lastUpdated;
+	
 }
 
    
 
-function getPlayers() {
+function getPlayers(_callback) {
 
     fetch('https://api.thetheoristgateway.com/args/fdasfdasdfasfdsafdafdsaf/leaderboard?username=_')
   .then(
@@ -36,6 +34,7 @@ function getPlayers() {
       response.json().then(function(data) {
         number_players = data.length;
         lastUpdated = new Date()
+        _callback();
         return;
       });
     }
@@ -57,7 +56,6 @@ function getPlayers() {
 	<button type="button" id="manualUpdate_btn" class="btn update_btn ">Manual Update</button>
 </div>
 <script type="text/javascript">
-  
 	document.getElementById('manualUpdate_btn').onclick = function() {
     UpdateCounter();
  }
