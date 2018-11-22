@@ -22,7 +22,7 @@ function UpdateCounter() {
 
 function getPlayers(_callback) {
 
-    fetch('https://api.thetheoristgateway.com/args/fdasfdasdfasfdsafdafdsaf/leaderboard?username=_')
+    fetch('https://api.thetheoristgateway.com/args/265048a8-8521-4e9c-84c7-1de081efe0a4/leaderboard?limit=1')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -33,7 +33,7 @@ function getPlayers(_callback) {
 
       // Examine the text in the response
       response.json().then(function(data) {
-        number_players = data.length;
+        number_players = data.total;
         lastUpdated = new Date()
         _callback();
         return;
