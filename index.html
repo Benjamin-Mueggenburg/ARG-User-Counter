@@ -22,7 +22,12 @@ function UpdateCounter() {
 
 function getPlayers(_callback) {
 
-    fetch('https://api.thetheoristgateway.com/args/265048a8-8521-4e9c-84c7-1de081efe0a4/leaderboard?limit=1')
+    fetch('https://api.thetheoristgateway.com/args/265048a8-8521-4e9c-84c7-1de081efe0a4/leaderboard?limit=1', {
+    	headers:{
+		'Content-Type': 'application/json',
+		'Access-Control-Allow-Origin': *
+	}
+    })
   .then(
     function(response) {
       if (response.status !== 200) {
